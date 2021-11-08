@@ -15,13 +15,13 @@ export default function List() {
   });
 
   useEffect(() => {
-    axios.get(`http://localhost:3333/price/USD-BRL`).then((response) => {
+    axios.get(`https://catacaohoje-backend.herokuapp.com/price/USD-BRL`).then((response) => {
       setCoin(response.data.USDBRL);
     });
   }, []);
 
   const getData = (url, res) =>
-    axios.get(`http://localhost:3333/price/` + url).then((response) => {
+    axios.get(`https://catacaohoje-backend.herokuapp.com/price/` + url).then((response) => {
       setCoin(response.data[res]);
     });
 
