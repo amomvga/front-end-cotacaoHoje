@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 
-
 export default function List() {
   const [coin, setCoin] = useState({
     name: null,
@@ -12,15 +11,19 @@ export default function List() {
   });
 
   useEffect(() => {
-    axios.get(`https://catacaohoje-backend.herokuapp.com/price/USD-BRL`).then((response) => {
-      setCoin(response.data.USDBRL);
-    });
+    axios
+      .get(`https://catacaohoje-backend.herokuapp.com/price/USD-BRL`)
+      .then((response) => {
+        setCoin(response.data.USDBRL);
+      });
   }, []);
 
   const getData = (url, res) =>
-    axios.get(`https://catacaohoje-backend.herokuapp.com/price/` + url).then((response) => {
-      setCoin(response.data[res]);
-    });
+    axios
+      .get(`https://catacaohoje-backend.herokuapp.com/price/` + url)
+      .then((response) => {
+        setCoin(response.data[res]);
+      });
 
   const handlerClick = (coin) => {
     switch (coin) {
@@ -53,22 +56,30 @@ export default function List() {
           </li>
           <li>
             <a onClick={() => handlerClick("cad")}>
-            <Image src="/img/canada_flag.jpg" width={100} height={100} />
+              <Image src="/img/canada_flag.jpg" width={100} height={100} />
             </a>
           </li>
           <li>
             <a onClick={() => handlerClick("dolar")}>
-            <Image src="/img/united_states_flag.jpg" width={100} height={100} />
+              <Image
+                src="/img/united_states_flag.jpg"
+                width={100}
+                height={100}
+              />
             </a>
           </li>
           <li>
             <a onClick={() => handlerClick("euro")}>
-            <Image src="/img/europe_flag.jpg" width={100} height={100} />
+              <Image src="/img/europe_flag.jpg" width={100} height={100} />
             </a>
           </li>
           <li>
             <a onClick={() => handlerClick("gbp")}>
-            <Image src="/img/united_kingdom_flag.jpg" width={100} height={100} />
+              <Image
+                src="/img/united_kingdom_flag.jpg"
+                width={100}
+                height={100}
+              />
             </a>
           </li>
         </ul>
