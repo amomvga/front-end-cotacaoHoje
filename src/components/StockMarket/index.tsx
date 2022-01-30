@@ -1,11 +1,11 @@
 import { Flex } from "@chakra-ui/react";
 
-import { CoinBase } from "./CoinBase";
+import { MarketBase } from "./MarketBase";
 
-export function Dashboard() {
+export function StockMarket() {
   return (
     <Flex w="100%" direction="column">
-      <CoinBase />
+      <MarketBase />
     </Flex>
   );
 }
