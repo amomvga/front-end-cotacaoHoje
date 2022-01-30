@@ -1,8 +1,15 @@
 import { Flex } from "@chakra-ui/react";
+import { FormEvent, useState } from "react";
 import { Logo } from "./Logo";
 import { SearchBar } from "./SearchBar";
 
 export function Header() {
+  const [search, setSearch] = useState("");
+
+  function handleSearch(event: FormEvent) {
+    event.preventDefault();
+  }
+
   return (
     <Flex
       as="header"
@@ -18,7 +25,10 @@ export function Header() {
       <Logo />
 
       <Flex w="100%" position="relative" justify="center">
-        <SearchBar />
+        <SearchBar
+          onChange={(event) => setSearch(event.target.value)}
+          value={search}
+        />
       </Flex>
     </Flex>
   );

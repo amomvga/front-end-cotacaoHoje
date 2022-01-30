@@ -1,7 +1,10 @@
 import { Flex, Icon, Input } from "@chakra-ui/react";
 import { RiSearchLine } from "react-icons/ri";
+import { InputProps as ChakraInputProps } from "@chakra-ui/react";
 
-export function SearchBar() {
+interface SearchBarProps extends ChakraInputProps {}
+
+export function SearchBar({...rest}: SearchBarProps) {
   return (
     <Flex
       as="label"
@@ -24,6 +27,7 @@ export function SearchBar() {
         mr="4"
         placeholder="Buscar"
         _placeholder={{ color: "gray.400" }}
+        {...rest}
       />
 
       <Icon as={RiSearchLine} fontSize="20" />

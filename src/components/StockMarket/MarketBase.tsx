@@ -9,7 +9,7 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export function MarketBase() {
   const [current, setCurrent] = useState("");
-  const [last, setLast] = useState("");
+  const [last, setLast] = useState({});
   const symbol = "PETR4.SA";
 
   useEffect(() => {
@@ -18,16 +18,18 @@ export function MarketBase() {
         `query?function=TIME_SERIES_DAILY&symbol=${symbol}&interval=5min&apikey=Z7BUML9FVYC4BBSQ`
       )
       .then((response) => {
-        setCurrent(response.data["Meta Data"]);
-        setLast(response.data)
+        // setCurrent(response.data["Meta Data"]);
+        setLast(response.data['Time Series (Daily)'])
       });
   }, []);
 
   var { ["2. Symbol"]: name }: any = current;
 
-  var { ['Time Series (Daily)']: testa , low, high, pctChange, bid, varBid }: any = last;
+  var { testa , low, high, pctChange, bid, varBid }: any = last;
 
-console.log(...testa);
+
+
+console.log(last);
 
 
 
