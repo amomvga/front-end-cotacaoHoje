@@ -12,9 +12,9 @@ export function Sidebar() {
           <NavLink icon={RiCoinFill}>Moedas</NavLink>
         </Link>
 
-        <Link href="/stock">
+        {/* <Link href="/stock">
           <NavLink icon={RiStockFill}>Ações</NavLink>
-        </Link>
+        </Link> */}
       </NavSection>
     </Box>
   );

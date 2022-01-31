@@ -1,0 +1,150 @@
+ [
+  {
+    "type": "GBP",
+    "name": "Libra Esterlina/Real Brasileiro"
+  },
+  {
+    "type": "NOK",
+    "name": "Coroa Norueguesa/Real Brasileiro"
+  },
+  {
+    "type": "BTC",
+    "name": "Bitcoin/Real Brasileiro"
+  },
+  {
+    "type": "NZD",
+    "name": "Dólar Neozelandês/Real Brasileiro"
+  },
+  {
+    "type": "CHF",
+    "name": "Franco Suíço/Real Brasileiro"
+  },
+  {
+    "type": "ETH",
+    "name": "Ethereum/Real Brasileiro"
+  },
+  {
+    "type": "DKK",
+    "name": "Coroa Dinamarquesa/Real Brasileiro"
+  },
+  {
+    "type": "COP",
+    "name": "Peso Colombiano/Real Brasileiro"
+  },
+  {
+    "type": "RUB",
+    "name": "Rublo Russo/Real Brasileiro"
+  },
+  {
+    "type": "CNY",
+    "name": "Yuan Chinês/Real Brasileiro"
+  },
+  {
+    "type": "INR",
+    "name": "Rúpia Indiana/Real Brasileiro"
+  },
+  {
+    "type": "MXN",
+    "name": "Peso Mexicano/Real Brasileiro"
+  },
+  {
+    "type": "PLN",
+    "name": "Zlóti Polonês/Real Brasileiro"
+  },
+  {
+    "type": "EUR",
+    "name": "Euro/Real Brasileiro"
+  },
+  {
+    "type": "SAR",
+    "name": "Riyal Saudita/Real Brasileiro"
+  },
+  {
+    "type": "TRY",
+    "name": "Nova Lira Turca/Real Brasileiro"
+  },
+  {
+    "type": "PYG",
+    "name": "Guarani Paraguaio/Real Brasileiro"
+  },
+  {
+    "type": "AED",
+    "name": "Dólar de Hong Kong/Real Brasileiro"
+  },
+  {
+    "type": "XRP",
+    "name": "XRP/Real Brasileiro"
+  },
+  {
+    "type": "ZAR",
+    "name": "Rand Sul-Africano/Real Brasileiro"
+  },
+  {
+    "type": "USD",
+    "name": "Dólar Americano/Real Brasileiro Turismo"
+  },
+  {
+    "type": "CAD",
+    "name": "Dólar Canadense/Real Brasileiro"
+  },
+  {
+    "type": "JPY",
+    "name": "Iene Japonês/Real Brasileiro"
+  },
+  {
+    "type": "ILS",
+    "name": "Novo Shekel Israelense/Real Brasileiro"
+  },
+  {
+    "type": "USD",
+    "name": "Dólar Americano/Real Brasileiro"
+  },
+  {
+    "type": "SGD",
+    "name": "Dólar de Cingapura/Real Brasileiro"
+  },
+  {
+    "type": "SEK",
+    "name": "Coroa Sueca/Real Brasileiro"
+  },
+  {
+    "type": "THB",
+    "name": "Baht Tailandês/Real Brasileiro"
+  },
+  {
+    "type": "PEN",
+    "name": "Sol do Peru/Real Brasileiro"
+  },
+  {
+    "type": "DOGE",
+    "name": "Dogecoin/Real Brasileiro"
+  },
+  {
+    "type": "TWD",
+    "name": "Dólar Taiuanês/Real Brasileiro"
+  },
+  {
+    "type": "LTC",
+    "name": "Litecoin/Real Brasileiro"
+  },
+  {
+    "type": "AUD",
+    "name": "Dólar Australiano/Real Brasileiro"
+  },
+  {
+    "type": "CLP",
+    "name": "Peso Chileno/Real Brasileiro"
+  },
+  {
+    "type": "BOB",
+    "name": "Boliviano/Real Brasileiro"
+  },
+  {
+    "type": "ARS",
+    "name": "Peso Argentino/Real Brasileiro"
+  },
+  {
+    "type": "UYU",
+    "name": "Peso Uruguaio/Real Brasileiro"
+  }
+]

@@ -8,9 +8,11 @@ import {
   theme,
 } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { RiArrowDownFill, RiArrowUpFill } from "react-icons/ri";
 import { coinBase } from "../../services/api";
+import { SearchBar, urlType } from "./SearchBar";
+import coinList from "./coinList.json";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
@@ -19,21 +21,25 @@ export function CoinBase() {
   const [last, setLast] = useState("");
 
   useEffect(() => {
-    coinBase
-      .get("last/USD-BRL")
-      .then((response) => setCurrent(response.data.USDBRL));
+    coinBase.get(`last/USD-BRL`).then((response) => {
+      setCurrent(response.data.USDBRL);
+    });
 
     coinBase
-      .get("USD-BRL/30")
+      .get(`${urlType}-BRL/30`)
       .then((response) =>
-        setLast(response.data.map((n) => Number(n.bid).toFixed(2)).reverse())
+        setLast(response.data.map((n) => Number(n.bid)).reverse())
       );
-    // setInterval(() => {
-    //   api
-    //     .get("last/USD-BRL")
-    //     .then((response) => setConsulting(response.data.USDBRL));
-    // }, 15000);
+    setInterval(() => {
+      coinBase.get(`last/${urlType}-BRL`).then((response) => {
+        setCurrent(response.data[`${urlType}BRL`]);
+      });
+    }, 10000);
   }, []);
+
+  function handleSearch(event: FormEvent) {
+    event.preventDefault();
+  }
 
   var { name, low, high, pctChange, bid, varBid }: any = current;
 
@@ -92,6 +98,14 @@ export function CoinBase() {
   return (
     <Stack spacing="4">
       <Flex
+        justifySelf="flex-end"
+        alignSelf="flex-end"
+        direction="column"
+        maxWidth={313}
+      >
+        <SearchBar data={coinList} />
+      </Flex>
+      <Flex
         bg="gray.800"
         p="4"
         borderRadius={8}
@@ -121,7 +135,7 @@ export function CoinBase() {
         >
           <Text fontSize="x-large">VALOR ATUAL</Text>
           <Text fontWeight="bold" fontSize="xl" color="purple.500">
-            R$ {Number(bid).toFixed(2)}
+            R$ {Number(bid)}
           </Text>
           {Number(varBid) >= 0 ? (
             <Flex alignItems="center">
