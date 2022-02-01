@@ -1,11 +1,14 @@
-import { Flex, Input } from "@chakra-ui/react";
+import { Flex, Icon, Input } from "@chakra-ui/react";
 import { InputProps as ChakraInputProps } from "@chakra-ui/react";
+import { RiCloseFill } from "react-icons/ri";
 
 interface SearchBarProps extends ChakraInputProps {
   data?: any;
+  icon?: any;
+  action?: any;
 }
 
-export function SearchBar({ data, ...rest }: SearchBarProps) {
+export function SearchBar({ data, icon, action, ...rest }: SearchBarProps) {
   return (
     <Flex direction="column">
       <Flex
@@ -30,6 +33,7 @@ export function SearchBar({ data, ...rest }: SearchBarProps) {
           _placeholder={{ color: "gray.400" }}
           {...rest}
         />
+        <Icon as={icon} onClick={action} />
       </Flex>
     </Flex>
   );

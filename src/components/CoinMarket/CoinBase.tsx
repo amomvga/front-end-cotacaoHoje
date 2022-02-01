@@ -1,4 +1,5 @@
 import {
+  Box,
   Flex,
   Grid,
   GridItem,
@@ -9,7 +10,13 @@ import {
 } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { RiArrowDownFill, RiArrowUpFill, RiCloseFill } from "react-icons/ri";
+import {
+  RiArrowDownFill,
+  RiArrowUpFill,
+  RiCloseFill,
+  RiSearchFill,
+  RiSearchLine,
+} from "react-icons/ri";
 import { SearchBar } from "./SearchBar";
 import coinList from "./coinList.json";
 import { coinBase } from "../../services/api";
@@ -110,6 +117,8 @@ export function CoinBase() {
     },
   ];
 
+  var setIcon = null;
+
   return (
     <Stack spacing="4">
       <Flex
@@ -118,28 +127,32 @@ export function CoinBase() {
         direction="column"
         maxWidth={313}
       >
+        {inputSearch !== ""
+          ? (setIcon = RiCloseFill)
+          : (setIcon = RiSearchLine)}
         <SearchBar
+          id="searchbar"
           data={coinList}
           value={inputSearch}
           onChange={(event) => setInputSearch(event.target.value)}
+          icon={setIcon}
+          action={clearText}
         />
 
-        {inputSearch !== "" ? (
-          <Icon as={RiCloseFill} onClick={clearText} fontSize="20" />
-        ) : (
-          ""
-        )}
-
         {search.length !== 37 && search.length !== 0 && (
-          <Flex
+          <Box
             direction="column"
-            bg="gray.800"
+            bg="gray.700"
             borderRadius={8}
             p="4"
+            w="309px"
+            mt="56px"
             color="gray.400"
-            maxHeight={250}
+            maxHeight={150}
             overflow="hidden"
             overflowY="auto"
+            zIndex={1}
+            position="absolute"
             css={{
               "&::-webkit-scrollbar": {
                 display: "none",
@@ -150,14 +163,14 @@ export function CoinBase() {
               <Text
                 key={key}
                 p="1"
-                _hover={{ background: "gray.700" }}
+                _hover={{ background: "gray.600" }}
                 cursor="pointer"
                 onClick={() => handleClickAutoComplete(value)}
               >
                 {value.name}
               </Text>
             ))}
-          </Flex>
+          </Box>
         )}
       </Flex>
       <Flex
