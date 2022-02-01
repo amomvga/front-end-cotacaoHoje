@@ -190,7 +190,7 @@ export function CoinBase() {
         >
           <Text fontSize="x-large">VALOR ATUAL</Text>
           <Text fontWeight="bold" fontSize="xl" color="purple.500">
-            R$ {Number(bid)}
+            R$ {Number(bid).toFixed(2)}
           </Text>
           {Number(varBid) >= 0 ? (
             <Flex alignItems="center">
@@ -261,11 +261,11 @@ export function CoinBase() {
 
           {Number(pctChange) > 0 ? (
             <Text fontWeight="bold" fontSize="xl" color="green">
-              {Number(pctChange).toFixed(2)}%
+              {Number(pctChange)}%
             </Text>
           ) : (
             <Text fontWeight="bold" fontSize="xl" color="red">
-              {Number(pctChange).toFixed(2)}%
+              {Number(pctChange)}%
             </Text>
           )}
         </GridItem>
@@ -283,7 +283,7 @@ export function CoinBase() {
       >
         <Chart
           type="area"
-          width={1000}
+          width={1200}
           height={250}
           series={series}
           options={options}

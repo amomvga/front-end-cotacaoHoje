@@ -1,7 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import { CoinMarket } from "../components/CoinMarket";
 import { Header } from "../components/Header";
-import { Sidebar } from "../components/Sidebar.tsx";
 
 export default function Home() {
   return (
@@ -9,7 +8,6 @@ export default function Home() {
       <Header />
 
       <Flex w="100%" my="6" maxWidth={1480} mx="auto" px="6">
-        <Sidebar />
         <CoinMarket />
       </Flex>
     </Flex>

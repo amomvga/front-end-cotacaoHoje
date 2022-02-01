@@ -1,19 +1,29 @@
-import { Text } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
 
 export function Logo() {
   return (
-    <Text
-      fontSize="3xl"
-      fontWeight="bold"
-      letterSpacing="tight"
-      w="sm"
-      color="gray.200"
+    <Flex
       align="center"
-      border="2px"
-      borderRadius="full"
-      borderColor="gray.500"
+      alignItems="center"
+      alignContent="center"
+      alignSelf="center"
+      textAlign="center"
+      justifyItems="center"
+      justifySelf="center"
+      justifyContent="center"
+      justify="center"
     >
-      COTAÇÃO HOJE
-    </Text>
+      <Text
+        fontSize="3xl"
+        fontWeight="bold"
+        letterSpacing="tight"
+        color="gray.500"
+        borderRadius="full"
+        borderColor="gray.500"
+        p="6"
+      >
+        COTAÇÃO HOJE
+      </Text>
+    </Flex>
   );
 }
