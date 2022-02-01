@@ -8,37 +8,52 @@ import {
   theme,
 } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-import { FormEvent, useEffect, useState } from "react";
-import { RiArrowDownFill, RiArrowUpFill } from "react-icons/ri";
-import { coinBase } from "../../services/api";
-import { SearchBar, urlType } from "./SearchBar";
+import { useEffect, useState } from "react";
+import { RiArrowDownFill, RiArrowUpFill, RiCloseFill } from "react-icons/ri";
+import { SearchBar } from "./SearchBar";
 import coinList from "./coinList.json";
+import { coinBase } from "../../services/api";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export function CoinBase() {
   const [current, setCurrent] = useState("");
   const [last, setLast] = useState("");
+  const [newSearch, setNewSearch] = useState("USD");
+  const [inputSearch, setInputSearch] = useState("");
+  const [search, setSearch] = useState([]);
 
   useEffect(() => {
-    coinBase.get(`last/USD-BRL`).then((response) => {
-      setCurrent(response.data.USDBRL);
+    coinBase.get(`last/${newSearch}-BRL`).then((response) => {
+      setCurrent(response.data[`${newSearch}BRL`]);
     });
+  }, [search]);
 
+  useEffect(() => {
     coinBase
-      .get(`${urlType}-BRL/30`)
+      .get(`${newSearch}-BRL/30`)
       .then((response) =>
         setLast(response.data.map((n) => Number(n.bid)).reverse())
       );
-    setInterval(() => {
-      coinBase.get(`last/${urlType}-BRL`).then((response) => {
-        setCurrent(response.data[`${urlType}BRL`]);
-      });
-    }, 10000);
-  }, []);
+  }, [search]);
 
-  function handleSearch(event: FormEvent) {
-    event.preventDefault();
+  useEffect(() => {
+    setSearch(filterList);
+  }, [inputSearch]);
+
+  const filterList = coinList.filter((value) => {
+    return value.name.toLocaleLowerCase().includes(inputSearch);
+  });
+
+  function handleClickAutoComplete(value) {
+    setInputSearch(value.name);
+    setSearch([]);
+    setNewSearch(value.type);
+  }
+
+  function clearText() {
+    setInputSearch("");
+    setSearch([]);
   }
 
   var { name, low, high, pctChange, bid, varBid }: any = current;
@@ -103,7 +118,47 @@ export function CoinBase() {
         direction="column"
         maxWidth={313}
       >
-        <SearchBar data={coinList} />
+        <SearchBar
+          data={coinList}
+          value={inputSearch}
+          onChange={(event) => setInputSearch(event.target.value)}
+        />
+
+        {inputSearch !== "" ? (
+          <Icon as={RiCloseFill} onClick={clearText} fontSize="20" />
+        ) : (
+          ""
+        )}
+
+        {search.length !== 37 && search.length !== 0 && (
+          <Flex
+            direction="column"
+            bg="gray.800"
+            borderRadius={8}
+            p="4"
+            color="gray.400"
+            maxHeight={250}
+            overflow="hidden"
+            overflowY="auto"
+            css={{
+              "&::-webkit-scrollbar": {
+                display: "none",
+              },
+            }}
+          >
+            {search.map((value, key) => (
+              <Text
+                key={key}
+                p="1"
+                _hover={{ background: "gray.700" }}
+                cursor="pointer"
+                onClick={() => handleClickAutoComplete(value)}
+              >
+                {value.name}
+              </Text>
+            ))}
+          </Flex>
+        )}
       </Flex>
       <Flex
         bg="gray.800"
