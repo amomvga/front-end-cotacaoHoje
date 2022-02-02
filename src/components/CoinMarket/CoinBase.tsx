@@ -39,7 +39,7 @@ export function CoinBase() {
 
   useEffect(() => {
     coinBase
-      .get(`${newSearch}-BRL/30`)
+      .get(`${newSearch}-BRL/15`)
       .then((response) =>
         setLast(response.data.map((n) => Number(n.bid)).reverse())
       );
