@@ -8,13 +8,13 @@ import {
   Text,
   theme,
 } from "@chakra-ui/react";
+import styles from "./styles/CoinBase.module.css";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import {
   RiArrowDownFill,
   RiArrowUpFill,
   RiCloseFill,
-  RiSearchFill,
   RiSearchLine,
 } from "react-icons/ri";
 import { SearchBar } from "./SearchBar";
@@ -285,6 +285,8 @@ export function CoinBase() {
       </Grid>
 
       <Flex
+        w="100%"
+        className={styles.Chart}
         p="2"
         bg="gray.800"
         borderRadius={8}
@@ -295,9 +297,9 @@ export function CoinBase() {
         justify="center"
       >
         <Chart
-          type="area"
-          width={1200}
+          className={styles.Chart}
           height={250}
+          type="area"
           series={series}
           options={options}
         />
