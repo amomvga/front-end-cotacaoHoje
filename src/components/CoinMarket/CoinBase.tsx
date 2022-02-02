@@ -135,7 +135,7 @@ export function CoinBase() {
           id="searchbar"
           data={coinList}
           value={inputSearch}
-          onChange={(event) => setInputSearch(event.target.value)}
+          onChange={(event) => setInputSearch(event.target.value.toLowerCase())}
           icon={setIcon}
           action={clearText}
         />
