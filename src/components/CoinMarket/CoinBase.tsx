@@ -189,7 +189,7 @@ export function CoinBase() {
         </Text>
       </Flex>
 
-      <SimpleGrid minChildWidth="140px"  spacing="4">
+      <SimpleGrid minChildWidth="140px" spacing="4">
         <Box
           bg="gray.800"
           border="1px"
@@ -296,7 +296,7 @@ export function CoinBase() {
       >
         <Chart
           className={styles.Chart}
-          height={250}
+          height="100%"
           type="area"
           series={series}
           options={options}
