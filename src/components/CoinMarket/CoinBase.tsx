@@ -4,6 +4,7 @@ import {
   Grid,
   GridItem,
   Icon,
+  SimpleGrid,
   Stack,
   Text,
   theme,
@@ -125,7 +126,7 @@ export function CoinBase() {
         justifySelf="flex-end"
         alignSelf="flex-end"
         direction="column"
-        maxWidth={313}
+        maxWidth={[200, 300]}
       >
         {inputSearch !== ""
           ? (setIcon = RiCloseFill)
@@ -188,9 +189,8 @@ export function CoinBase() {
         </Text>
       </Flex>
 
-      <Grid templateColumns="repeat(4, 1fr)" gap={6}>
-        <GridItem
-          w="100%"
+      <SimpleGrid minChildWidth="140px"  spacing="4">
+        <Box
           bg="gray.800"
           border="1px"
           borderColor="purple.800"
@@ -200,6 +200,7 @@ export function CoinBase() {
           alignItems="center"
           display="flex"
           flexDir="column"
+          h="108px"
         >
           <Text fontSize="x-large">VALOR ATUAL</Text>
           <Text fontWeight="bold" fontSize="xl" color="purple.500">
@@ -220,10 +221,8 @@ export function CoinBase() {
               </Text>
             </Flex>
           )}
-        </GridItem>
-
-        <GridItem
-          w="100%"
+        </Box>
+        <Box
           bg="gray.800"
           border="1px"
           borderColor="purple.800"
@@ -233,15 +232,14 @@ export function CoinBase() {
           alignItems="center"
           display="flex"
           flexDir="column"
+          h="108px"
         >
-          <Text fontSize="x-large">MÁXIMA DO DIA</Text>
+          <Text fontSize="x-large">MÁXIMA</Text>
           <Text fontWeight="bold" fontSize="xl">
             R$ {Number(high).toFixed(2)}
           </Text>
-        </GridItem>
-
-        <GridItem
-          w="100%"
+        </Box>
+        <Box
           bg="gray.800"
           border="1px"
           borderColor="purple.800"
@@ -251,15 +249,14 @@ export function CoinBase() {
           alignItems="center"
           display="flex"
           flexDir="column"
+          h="108px"
         >
-          <Text fontSize="x-large">MINIMA DO DIA</Text>
+          <Text fontSize="x-large">MINIMA</Text>
           <Text fontWeight="bold" fontSize="xl">
             R$ {Number(low).toFixed(2)}
           </Text>
-        </GridItem>
-
-        <GridItem
-          w="100%"
+        </Box>
+        <Box
           bg="gray.800"
           border="1px"
           borderColor="purple.800"
@@ -269,6 +266,7 @@ export function CoinBase() {
           alignItems="center"
           display="flex"
           flexDir="column"
+          h="108px"
         >
           <Text fontSize="x-large">VARIAÇÃO</Text>
 
@@ -281,8 +279,8 @@ export function CoinBase() {
               {Number(pctChange)}%
             </Text>
           )}
-        </GridItem>
-      </Grid>
+        </Box>
+      </SimpleGrid>
 
       <Flex
         w="100%"
