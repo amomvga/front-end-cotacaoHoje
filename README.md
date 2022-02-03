@@ -1,6 +1,13 @@
 ## Cotação Hoje
 
-<p>Fiz esse front para se comunicar com uma API que criei para aprender a consumir API externa dentro de uma API.</p>
-<p>Decidi fazer em NextJS para aprender.</p>
+<p>Treinando NextJS com chamadas de API para fazer cotação de moedas e conversão de preço!</p>
 
-<img src="https://user-images.githubusercontent.com/23347183/140944180-741e0ffe-a8c1-4112-bf55-9842d3e4419b.png" />
+<a href="https://front-end-cotacao-hoje.vercel.app">Confira</a>
+
+<p>Foi utilizado:</p>
+<ul>
+  <li>Chakra UI</li>
+  <li>Apexcharts</li>
+  <li>Axios</li>
+  <li>Typescript</li>
+</ul>
