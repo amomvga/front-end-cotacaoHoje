@@ -1,8 +1,6 @@
 import {
   Box,
   Flex,
-  Grid,
-  GridItem,
   Icon,
   SimpleGrid,
   Stack,
@@ -184,7 +182,7 @@ export function CoinBase() {
         border="1px"
         borderColor="purple.800"
       >
-        <Text fontSize="x-large" fontWeight="bold">
+        <Text fontSize={["xxl","x-large"]} fontWeight="bold">
           {name}
         </Text>
       </Flex>
@@ -202,7 +200,7 @@ export function CoinBase() {
           flexDir="column"
           h="108px"
         >
-          <Text fontSize="x-large">VALOR ATUAL</Text>
+          <Text fontSize={["xxl","x-large"]}>VALOR ATUAL</Text>
           <Text fontWeight="bold" fontSize="xl" color="purple.500">
             R$ {Number(bid).toFixed(2)}
           </Text>
@@ -234,7 +232,7 @@ export function CoinBase() {
           flexDir="column"
           h="108px"
         >
-          <Text fontSize="x-large">MÁXIMA</Text>
+          <Text fontSize={["xxl","x-large"]}>MÁXIMA</Text>
           <Text fontWeight="bold" fontSize="xl">
             R$ {Number(high).toFixed(2)}
           </Text>
@@ -251,7 +249,7 @@ export function CoinBase() {
           flexDir="column"
           h="108px"
         >
-          <Text fontSize="x-large">MINIMA</Text>
+          <Text fontSize={["xxl","x-large"]}>MINIMA</Text>
           <Text fontWeight="bold" fontSize="xl">
             R$ {Number(low).toFixed(2)}
           </Text>
@@ -268,7 +266,7 @@ export function CoinBase() {
           flexDir="column"
           h="108px"
         >
-          <Text fontSize="x-large">VARIAÇÃO</Text>
+          <Text fontSize={["xxl","x-large"]}>VARIAÇÃO</Text>
 
           {Number(pctChange) > 0 ? (
             <Text fontWeight="bold" fontSize="xl" color="green">
