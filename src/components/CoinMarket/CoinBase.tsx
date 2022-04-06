@@ -30,8 +30,10 @@ export function CoinBase() {
   const [search, setSearch] = useState([]);
 
   useEffect(() => {
-    coinBase.get(`last/${newSearch}-BRL`).then((response) => {
-      setCurrent(response.data[`${newSearch}BRL`]);
+    coinBase.get(`last/${newSearch}`).then((response) => {
+      setCurrent(response.data[`${newSearch}`]);
+      console.log(response.data['USD']);
+      
     });
   }, [search]);
 
